@@ -6,7 +6,6 @@ body {
   background-color: #000000;
 }
 
-/* Top bar */
 .top-bar {
   display: flex;
   align-items: center;
@@ -21,7 +20,6 @@ body {
   margin-right: 10px;
 }
 
-/* Banner section */
 .banner {
   background-image: url('images/online-security-dark-background-3d-illustration.jpg');
   background-position: center;
@@ -33,7 +31,6 @@ body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 2.0rem;
   font-weight: bold;
-  
 }
 
 .banner1 {
@@ -66,9 +63,6 @@ body {
   line-height: 1.5;
 }
 
-
-
-/* Academic Section */
 .academics {
   background-color: #f4f4f4;
   padding: 30px 20px;
@@ -146,7 +140,6 @@ td {
   text-shadow: 0 0 6px #000000;
 }
 
-/* Hackathon Section */
 .hackathon-section {
   background-color: #000000;
   padding: 40px 20px;
@@ -167,6 +160,7 @@ td {
 
 .hackathon-text {
   flex: 1;
+  font-size:larger ;
   padding-right: 20px;
   color: #cccccc;
 }
@@ -185,6 +179,7 @@ td {
 
 .hackathon-image {
   flex: 1;
+  padding-top: 40px;
   text-align: center;
 }
 
@@ -198,7 +193,7 @@ td {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
-/* Mobile responsive layout */
+
 @media (max-width: 768px) {
   .hackathon-content {
     flex-direction: column;
@@ -208,4 +203,4 @@ td {
   .hackathon-image {
     padding: 10px 0;
   }
-}
+} 
