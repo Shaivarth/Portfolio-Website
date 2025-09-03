@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="images/cropped_circle_image.png">
   <meta charset="UTF-8">
-  <title>Sarthak Mishra</title>
+  <title>Shaivarth</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<button id="backToTop" onclick="scrollToTop()">⇪</button>
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<script>
+  function speakSanskrit() {
+    const utter = new SpeechSynthesisUtterance("/Shaarrďung/");
+    // Try to find a Hindi/Indian voice
+    const voices = speechSynthesis.getVoices();
+    const hi = voices.find(v => /hi-|Hindi|India/i.test(v.lang || v.name));
+    if (hi) utter.voice = hi;
+    utter.lang = hi ? hi.lang : "hi-IN";
+    utter.rate = 0.25;
+    speechSynthesis.speak(utter);
+  }
+
+  // Ensure voices load
+  if (speechSynthesis && !speechSynthesis.getVoices().length) {
+    speechSynthesis.onvoiceschanged = () => {};
+  }
+</script>
+
 <body>
 
   <div class="top-bar">
@@ -17,48 +53,56 @@
       </p>
     </div>
     <div class="right-nav">
-      <a href="education.html">Education</a>
-      <a href="projects.html">Projects</a>
-      <a href="hackathons.html">Hackathons</a>
-      <a href="certifications.html">Certifications</a>
+      <a href="#thm">THM</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#hackathons">Hackathons</a>
+      <a href="#certifications">Certifications</a>
     </div>
   </div>
 
   <div class="banner">
-    <h1>CyberSec X Sarthak</h1>
+    <h1>Welcome to my portfolio.</h1>
   </div>
 
-  <div style="
-    background-image: url('images/binary2.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    padding: 10px;
-    background-color: #000000;
-    border: 2px solid #000000;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 480px;
-    margin: 20px auto;
-    box-shadow: 0 8px 20px rgba(0, 255, 200, 0.15);
-  ">
-    <h3 style="
-      color: #e2e8f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: auto;
-    ">
-    </h3>
 
+  <section class="quote-section">
+    <blockquote>
+      “The only truly secure system is one that is powered off, cast in a block of concrete 
+      and sealed in a lead-lined room with armed guards.”
+    </blockquote>
+    <p class="quote-author">Gene Spafford (American professor and computer science researcher)</p>
+  </section>
+
+  <hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;">
+<section id="thm" class="academicss"></section>
+    <section class="thm-section">
+      <tryhackmeheading>
+        My TryHackMe Profile
+      </tryhackmeheading>
+    </section>
+
+<div style="
+  background-image: url('images/binary2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* keep badge centered */
+  justify-content: center;
+  padding: 20px;
+  background-color: #000000;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;   /* wider container */
+  margin: 20px auto;
+">
+  <div style="transform: scale(1.4); transform-origin: top center;">
     <iframe
       src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3151569"
       style="
         width: 100%;
-        max-width: 400px;
         height: 110px;
         border: none;
         border-radius: 12px;
@@ -66,8 +110,172 @@
       "
       loading="lazy"
       title="TryHackMe Badge"
-    ></iframe>
+    ></iframe><br>
   </div>
+</div>
+</section>
+<br>
+
+   <br><hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;"><br><br>
+
+   <!-- Projects Section -->
+  <section id="projects" class="academics">
+    <div class="banner1">
+      <h1>Projects</h1>
+    </div>
+    
+    <div class="hackathon-content">
+      <div class="hackathon-text">
+        <h2><code>Śārṅga(शार्ङ्ग)</code></h2>
+        <p>
+          I built <strong>Śārṅga (शार्ङ्ग)</strong><button class="speak-inline" onclick="speakSanskrit()" title="Pronounce">🔊</button>, a high-security encryption and decryption tool that converts plaintext into secure binary and back. 
+          Powered by my proprietary cipher algorithm, it ensures strong protection with a simple, responsive interface—ideal for safeguarding passwords, private messages, and sensitive data.
+          <br><br>
+          The algorithm uses <strong>custom prefixes with fixed-length binary encoding</strong>, assigning unique patterns to lowercase, uppercase, digits, and symbols. 
+          This reduces pattern recognition, resists brute-force attacks, and balances <strong>usability with robust security</strong>.
+          <br><br>
+          This is an <strong>ongoing, unfinished project</strong>, and it will continue to undergo improvements and modifications to enhance security, functionality, and user experience.
+        </p>
+        <a href="https://shaivarth.github.io/Shaarnga/" target="_blank" class="visit-btn">Explore</a>
+      </div>
+      <div class="hackathon-image">
+        <img src="images/Śārṅga1.png" alt="Śārṅga Project"><br>
+      </div>
+      
+    </div>
+  </section>
+  <hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;"><br><br>
+
+
+  <!-- Education Section -->
+  <section id="education" class="academics">
+    <div class="banner1">
+      <h1>Academic Qualifications</h1>
+    </div>
+    <table>
+      <thead><br><br>
+        <tr>
+          <th>Institute</th>
+          <th>Class / Degree</th>
+          <th>Board / University</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIT Bhopal University</td>
+          <td>B.Tech</td>
+          <td>VIT</td>
+          <td>Current CGPA 7.12</td>
+        </tr>
+        <tr>
+          <td>RLPS Jhansi</td>
+          <td>12th</td>
+          <td>ICSE</td>
+          <td>76%</td>
+        </tr>        
+        <tr>
+          <td>RLPS Jhansi</td>
+          <td>10th</td>
+          <td>ICSE</td>
+          <td>84%</td>
+        </tr>
+      </tbody>
+    </table><br><br>
+  </section>
+      <hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;"><br><br>
+
+  
+  <!-- Hackathons Section -->
+  <section id="hackathons" class="academics">
+    <div class="banner1">
+      <h1>Hackathons</h1>
+    </div>
+    <div class="hackathon-content">
+      <div class="hackathon-text">
+        <h2>Health-Hack 2025</h2>
+        <p>
+          Competed in a <strong>Health Hackathon</strong> jointly organized by 
+          <strong>VIT Bhopal University, India</strong> and 
+          <strong>John Hopkins University, USA</strong> on 18–19 February 2025! 
+          <br><br>
+          We successfully <strong>cleared 2 rounds</strong> of the hackathon. While we didn’t make it to the final round, 
+          the experience was incredible, and we’re proud of what we built. 
+          <br><br>
+          It was an interesting experience tackling real-world healthcare challenges while applying our skills in 
+          Cyber Security, Web Development and UI UX.
+        </p>
+      </div>
+      <div class="hackathon-image">
+        <img src="images/Healthhack.png" alt="Health Hackathon">
+      </div>
+    </div>
+  </section>
+    <hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;"><br><br>
+
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="academics">
+    <div class="banner1">
+      <h1>Certifications</h1>
+    </div>
+    <div class="hackathon-content">
+      <div class="hackathon-text">
+        <h2><code>ISC2 Candidate</code></h2>
+        <p>
+          I’m officially recognized as an ISC2 Candidate, a designation for individuals actively pursuing a 
+          cybersecurity career and working toward globally respected certifications like CC (Certified in 
+          Cybersecurity). As a Candidate, I’ve agreed to the ISC2 Code of Ethics and gained access to their 
+          exclusive learning platform and professional community.
+          <br><br>
+          I have completed all the required lessons and learning modules related to the CC exam, covering 
+          key domains such as security principles, network security, access controls, risk management, and 
+          incident response. With the training and knowledge now in place, I’m fully prepared and only need 
+          to schedule and appear for the certification exam.
+        </p>
+      </div>
+      <div class="hackathon-image">
+        <img src="images/isc22.png" alt="ISC2 Certification">
+      </div>
+    </div>
+
+    <div class="hackathon-content">
+      <div class="hackathon-text">
+        <h2>EC-Council : <code>Raspberry Pi 4 Model B: Multi-OS Setup including Raspbian and Ubuntu</code></h2>
+        <p>
+          I successfully completed the "Raspberry Pi 4 Model B: Multi-OS Setup" certification by EC-Council, 
+          which focused on setting up and configuring multiple operating systems — including Raspbian and Ubuntu — 
+          on the Raspberry Pi 4 platform.
+          <br><br>
+          This certification strengthened my practical understanding of Linux-based systems, ARM architecture, and 
+          multi-boot configurations. It also enhanced my ability to perform OS-level customizations, manage system 
+          resources, and use the Raspberry Pi as a lightweight yet powerful cybersecurity lab environment.
+        </p>
+      </div>
+      <div class="hackathon-image">
+        <img src="images/eccouncil.png" alt="EC Council Certification">
+      </div>
+    </div>
+
+    <div class="hackathon-content">
+      <div class="hackathon-text">
+        <h2><code>Career Essentials in Software Development by Microsoft</code></h2>
+        <p>
+          I completed the <strong>Essentials in Software Development</strong> certification by Microsoft in 
+          collaboration with LinkedIn Learning. This program provided a strong foundation in core software 
+          development principles, modern programming practices, and essential tools used in the tech industry.
+          <br><br>
+          The course covered key areas such as programming logic, version control using Git, object-oriented 
+          concepts, debugging techniques, and the fundamentals of agile development.
+        </p>
+      </div>
+      <div class="hackathon-image">
+        <img src="images/ms.png" alt="Microsoft Certification">
+      </div>
+    </div>
+  </section>
+    <hr style="border: 0; border-top: 1px solid #434343; margin: 20px auto; max-width: 1100px;"><br><br>
+
 
 <footer style="
   background-color: #1c1c1c; 
